@@ -1,94 +1,62 @@
-
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PriceCard from './PriceCard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
+import Header from './Header';
 
 function App() {
   return (
     <div className="container">
-      <div className="box my-5 py-5">
-      <div className='heading text-center'>
-        <h1>Price Cards</h1>
+      <Header />
+      <div className="row justify-content-center align-items-center my-3">
+        <PriceCard
+          title="FREE"
+          pack="$0/month"
+          user="Single User"
+          storage="50GB Storage"
+          public="Unlimited Public Projects"
+          access="Community Access"
+          private="Unlimited Private Projects"
+          support="Dedicated Phone Support"
+          subdomain="Free Subdomain"
+          reports="Monthly Status Reports"
+          free="wrong "
+          freecheck={<FontAwesomeIcon icon={faCheck} />}
+          freewrong={<FontAwesomeIcon icon={faXmark} />}
+        />
+        <PriceCard
+          title="PLUS"
+          pack="$9/month"
+          user="5 Users"
+          storage="50GB Storage"
+          public="Unlimited Public Projects"
+          access="Community Access"
+          private="Unlimited Private Projects"
+          support="Dedicated Phone Support"
+          subdomain="Free Subdomain"
+          reports="Monthly Status Reports"
+          plus="wrong"
+          pluscheck={<FontAwesomeIcon icon={faCheck} />}
+          pluswrong={<FontAwesomeIcon icon={faXmark} />}
+        />
+        <PriceCard
+          title="PRO"
+          pack="$49/month"
+          user="Unlimited Users"
+          storage="50GB Storage"
+          public="Unlimited Public Projects"
+          access="Community Access"
+          private="Unlimited Private Projects"
+          support="Dedicated Phone Support"
+          subdomain="Free Subdomain"
+          reports="Monthly Status Reports"
+          procheck={<FontAwesomeIcon icon={faCheck} />}
+        />
       </div>
 
-      <div className="row justify-content-center align-items-center my-5">
-
-        <div className="col-lg-4 col-md-6">
-          <div className="card">
-              <div className="card-head">
-                <span>FREE</span>
-                <h1>&#x24;0/month</h1>
-              </div>
-              <div className="card-body">
-              <ul>
-                  <li><span>&#10003;</span>Single User</li>
-                  <li><span>&#10003;</span>50GB Storage</li>
-                  <li><span>&#10003;</span>Unlimited Public Projects</li>
-                  <li><span>&#10003;</span>Community Access</li>
-                  <li className='wrong'><span>&#9747;</span>Unlimited Private Projects</li>
-                  <li className='wrong'><span>&#9747;</span>Dedicated Phone Support</li>
-                  <li className='wrong'><span>&#9747;</span>Free Subdomain</li>
-                  <li className='wrong'><span>&#9747;</span>Monthly Status Reports</li>
-                </ul>
-                <div className="button">
-                  <button>BUTTON</button>
-                </div>
-
-              </div>
-          </div>
-        </div>
-
-        <div className="col-lg-4 col-md-6">
-          <div className="card">
-              <div className="card-head">
-                <span>PLUS</span>
-                <h1>&#x24;9/month</h1>
-              </div>
-              <div className="card-body">
-              <ul>
-                  <li><span>&#10003;</span>5 User</li>
-                  <li><span>&#10003;</span>50GB Storage</li>
-                  <li><span>&#10003;</span>Unlimited Public Projects</li>
-                  <li><span>&#10003;</span>Community Access</li>
-                  <li><span>&#10003;</span>Unlimited Private Projects</li>
-                  <li><span>&#10003;</span>Dedicated Phone Support</li>
-                  <li><span>&#10003;</span>Free Subdomain</li>
-                  <li className='wrong'><span>&#9747;</span>Monthly Status Reports</li>
-                </ul>
-                <div className="button">
-                  <button>BUTTON</button>
-                </div>
-
-              </div>
-          </div>
-        </div>
-
-        <div className="col-lg-4 col-md-6">
-          <div className="card">
-              <div className="card-head">
-                <span>PRO</span>
-                <h1>&#x24;49/month</h1>
-              </div>
-              <div className="card-body">
-              <ul>
-                  <li><span>&#10003;</span>Unlimited User</li>
-                  <li><span>&#10003;</span>50GB Storage</li>
-                  <li><span>&#10003;</span>Unlimited Public Projects</li>
-                  <li><span>&#10003;</span>Community Access</li>
-                  <li><span>&#10003;</span>Unlimited Private Projects</li>
-                  <li><span>&#10003;</span>Dedicated Phone Support</li>
-                  <li><span>&#10003;</span>Free Subdomain</li>
-                  <li><span>&#10003;</span>Monthly Status Reports</li>
-                </ul>
-                <div className="button">
-                  <button>BUTTON</button>
-                </div>
-
-              </div>
-          </div>
-        </div>
-
-        </div>
-      </div>
     </div>
   );
 }
