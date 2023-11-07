@@ -62,7 +62,7 @@ ul li {
 .col-lg-4:nth-child(n + 1) li:first-child {
   font-weight: bold;
 }
-.col-lg-4:nth-child(3) li:nth-child(7)::before {
+.col-lg-4:nth-child(n+3) li:nth-child(7)::before {
   content: "Unlimited ";
   font-weight: bold;
 }
