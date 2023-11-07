@@ -1,63 +1,138 @@
-import React from 'react';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import PriceCard from './PriceCard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import Header from './Header';
+import React from "react";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import PriceCard from "./PriceCard";
+import Header from "./Header";
 
 function App() {
+  const package_details = [
+    {
+      title: "FREE",
+      pack: 0,
+      features: [
+        {
+          access: "Single User",
+          value: true,
+        },
+        {
+          access: "5GB Storage ",
+          value: true,
+        },
+        {
+          access: "Unlimited Public Projects",
+          value: true,
+        },
+        {
+          access: "Community Access",
+          value: true,
+        },
+        {
+          access: "Unlimited Private Projects",
+          value: false,
+        },
+        {
+          access: "Dedicated Phone Support",
+          value: false,
+        },
+        {
+          access: "Free Subdomain",
+          value: false,
+        },
+        {
+          access: "Monthly Status Reports",
+          value: false,
+        }
+      ]
+    },
+    {
+      title: "PLUS",
+      pack: 9,
+      features: [
+        {
+          access: "5 User",
+          value: true,
+        },
+        {
+          access: "50GB Storage",
+          value: true,
+        },
+        {
+          access: "Unlimited Public Projects",
+          value: true,
+        },
+        {
+          access: "Community Access",
+          value: true,
+        },
+        {
+          access: "Unlimited Private Projects",
+          value: true,
+        },
+        {
+          access: "Dedicated Phone Support",
+          value: true,
+        },
+        {
+          access: "Free Subdomain",
+          value: true,
+        },
+        {
+          access: "Monthly Status Reports",
+          value: false,
+        }
+      ]
+    },
+    {
+      title: "PRO",
+      pack: 49,
+      features: [
+        {
+          access: "Unlimited User",
+          value: true,
+        },
+        {
+          access: "150GB Storage",
+          value: true,
+        },
+        {
+          access: "Unlimited Public Projects",
+          value: true,
+        },
+        {
+          access: "Community Access",
+          value: true,
+        },
+        {
+          access: "unlimited Private Projects",
+          value: true,
+        },
+        {
+          access: "Dedicated Phone Support",
+          value: true,
+        },
+        {
+          access: "Free Subdomain",
+          value: true,
+
+        },
+        {
+          access: "Monthly Status Reports",
+          value: true,
+        }
+      ]
+    }
+  ];
   return (
+    <section className="main py-5">
     <div className="container">
       <Header />
       <div className="row justify-content-center align-items-center my-3">
-        <PriceCard
-          title="FREE"
-          pack="$0/month"
-          user="Single User"
-          storage="50GB Storage"
-          public="Unlimited Public Projects"
-          access="Community Access"
-          private="Unlimited Private Projects"
-          support="Dedicated Phone Support"
-          subdomain="Free Subdomain"
-          reports="Monthly Status Reports"
-          free="wrong "
-          freecheck={<FontAwesomeIcon icon={faCheck} />}
-          freewrong={<FontAwesomeIcon icon={faXmark} />}
-        />
-        <PriceCard
-          title="PLUS"
-          pack="$9/month"
-          user="5 Users"
-          storage="50GB Storage"
-          public="Unlimited Public Projects"
-          access="Community Access"
-          private="Unlimited Private Projects"
-          support="Dedicated Phone Support"
-          subdomain="Free Subdomain"
-          reports="Monthly Status Reports"
-          plus="wrong"
-          pluscheck={<FontAwesomeIcon icon={faCheck} />}
-          pluswrong={<FontAwesomeIcon icon={faXmark} />}
-        />
-        <PriceCard
-          title="PRO"
-          pack="$49/month"
-          user="Unlimited Users"
-          storage="50GB Storage"
-          public="Unlimited Public Projects"
-          access="Community Access"
-          private="Unlimited Private Projects"
-          support="Dedicated Phone Support"
-          subdomain="Free Subdomain"
-          reports="Monthly Status Reports"
-          procheck={<FontAwesomeIcon icon={faCheck} />}
-        />
+        {package_details.map((item) => {
+          return <PriceCard details={item} />;
+        })}
       </div>
-
     </div>
+    </section>
   );
 }
 

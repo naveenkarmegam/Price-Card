@@ -1,31 +1,39 @@
-import React from 'react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import React from "react";
 
-const PriceCard = (props) => {
+const PriceCard = ({ details }) => {
   return (
-    <div className="col-lg-4 col-md-6">
-      <div className="card">
-        <div className="card-head">
-          <span>{props.title}</span>
-          <h1>{props.pack}</h1>
-        </div>
+    <div className="col-lg-4 col-md-8">
+      <div className="card mb-5 mb-lg-0">
         <div className="card-body">
-          <ul>
-            <li><span>{props.freecheck}{props.pluscheck}{props.procheck}</span>{props.user}</li>
-            <li><span>{props.freecheck}{props.pluscheck}{props.procheck}</span>{props.storage}</li>
-            <li><span>{props.freecheck}{props.pluscheck}{props.procheck}</span>{props.public}</li>
-            <li><span>{props.freecheck}{props.pluscheck}{props.procheck}</span>{props.access}</li>
-            <li className={props.free}><span>{props.freewrong}{props.pluscheck}{props.procheck}</span>{props.private}</li>
-            <li className={props.free}><span>{props.freewrong}{props.pluscheck}{props.procheck}</span>{props.support}</li>
-            <li className={props.free}><span>{props.freewrong}{props.pluscheck}{props.procheck}</span>{props.subdomain}</li>
-            <li className={`${props.plus} ${props.free}`}><span>{props.freewrong}{props.pluswrong}{props.procheck}</span>{props.reports}</li>
-          </ul>
-          <div className="button">
-            <button>BUTTON</button>
-          </div>
+          <h5 className="card-title text-muted text-uppercase text-center">{details.title}</h5>
+          <h6 className="card-price text-center">${details.pack}<span className="period">/month</span></h6>
+          <hr />
+            <ul className="fa-ul">
+              {details.features.map((item) => {
+                return (
+                  <li className={item.value ? '' : 'text-muted'}>
+                    <span className="fa-li">
+                      {item.value ? (
+                        <FontAwesomeIcon icon={faCheck} />
+                      ) : (
+                        <FontAwesomeIcon icon={faXmark} />
+                      )}
+                    </span>
+                    {item.access}
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="d-grid">
+              <button className="btn btn-primary text-uppercase">Button</button>
+            </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default PriceCard;
